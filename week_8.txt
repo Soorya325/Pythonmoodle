@@ -1,0 +1,109 @@
+resource url?
+QUESTION ----------------
+A sentence is a string of single-space separated words where each word consists only of lowercase letters.A word is uncommon if it appears exactly once in one of the sentences, and does not appear in the other sentence.Given two sentences s1 and s2, return a list of all the uncommon words. You may return the answer in any order.Example 1:Input: s1 = "this apple is sweet", s2 = "this apple is sour"Output: ["sweet","sour"]Example 2:Input: s1 = "apple apple", s2 = "banana"Output: ["banana"] Constraints:1 <= s1.length, s2.length <= 200s1 and s2 consist of lowercase English letters and spaces.s1 and s2 do not have leading or trailing spaces.All the words in s1 and s2 are separated by a single space.Note:Use dictionary to solve the problem
+------------------ANSWER
+s1=input().split()
+s2=input().split()
+d={}
+for i in s1:
+    if i not in d:
+        d[i]=1
+    else:
+        d[i]+=1
+for i in s2:
+    if i not in d:
+        d[i]=1
+    else:
+        d[i]+=1
+for i in d:
+    if d[i]==1:
+        print(i,end=' ')
+------------------------------
+QUESTION ----------------
+Give a dictionary with value lists, sort the keys by summation of values in value list. Input : test_dict = {‘Gfg’ : [6, 7, 4], ‘best’ : [7, 6, 5]}Output : {‘Gfg’: 17, ‘best’: 18}Explanation : Sorted by sum, and replaced. Input : test_dict = {‘Gfg’ : [8,8], ‘best’ : [5,5]}Output : {‘best’: 10, ‘Gfg’: 16}Explanation : Sorted by sum, and replaced. Sample Input:2Gfg 6 7 4Best 7 6 5Sample OutputGfg 17Best 18
+------------------ANSWER
+n=int(input())
+testdict={}
+for i in range(n):
+    key,*values=input().split()
+    testdict[key] = list(map(int, values))
+
+
+sorteddict={k: sum(v) for k, v in sorted(testdict.items(), key=lambda item: sum(item[1]))}
+
+for key, value in sorteddict.items():
+    print(f"{key} {value}")
+------------------------------
+QUESTION ----------------
+Given an array of names of candidates in an election. A candidate name in the array represents a vote cast to the candidate. Print the name of candidates received Max vote. If there is tie, print a lexicographically smaller name.Examples: Input :  votes[] = {"john", "johnny", "jackie",                    "johnny", "john", "jackie",                    "jamie", "jamie", "john",                    "johnny", "jamie", "johnny",                    "john"};Output : JohnWe have four Candidates with name as 'John', 'Johnny', 'jamie', 'jackie'. The candidates John and Johny get maximum votes. Since John is alphabetically smaller, we print it. Use dictionary to solve the above problem Sample Input:10JohnJohnJohnyJamieJamieJohnyJackJohnyJohnyJackie Sample Output:Johny
+------------------ANSWER
+from collections import Counter 
+votes=[] 
+n=int(input())
+for i in range(n):
+    votes.append(input())
+vote_count=Counter(votes)
+max_votes=max(vote_count.values())
+lst=[i for i in vote_count.keys() if vote_count[i]==max_votes]
+print(sorted(lst)[0])
+------------------------------
+QUESTION ----------------
+Create a student dictionary  for n students with the student name as key and their test mark assignment mark and lab mark as values. Do the following computations and display the result.1.Identify the student with the  highest average score2.Identify the student who as the highest Assignment marks3.Identify the student with the Lowest lab marks4.Identify the student with the lowest average scoreNote:If more than one student has the same score display all the student namesSample input:4James 67 89 56Lalith 89 45 45Ram 89 89 89Sita 70 70 70Sample Output:RamJames RamLalithLalith
+------------------ANSWER
+n=int(input())
+d={}
+for i in range (n):
+    name,test,assi,lab=input().split()
+    d[name]=[int(test),int(assi),int(lab)]
+a=-999
+avg=""
+for i in d:
+    if sum(d[i])//3>a:
+        a=sum(d[i])//3
+        avg=i
+anm=[]
+for i in d:
+    anm.append(d[i][1])
+maxa=max(anm)
+nanm=[]
+for i in d:
+    if d[i][1]==maxa:
+        nanm.append(i)
+lm=[]
+for i in d:
+    lm.append(d[i][2])
+minl=min(lm)
+nlm=[]
+for i in d:
+    if d[i][2]==minl:
+        nlm.append(i)
+nlm.sort()
+lavg=[sum(d[i])//3 for i in d]
+minavg=min(lavg)
+navg=[]
+for i in d:
+    if sum(d[i])//3==minavg:
+        navg.append(i)
+print(avg)
+for i in nanm:
+    print(i,end=" ")
+print()
+for i in nlm:
+    print(i,end=" ")
+print()
+for i in navg:
+    print(i)
+------------------------------
+QUESTION ----------------
+In the game of Scrabble™, each letter has points associated with it. The total score of a word is the sum of the scores of its letters. More common letters are worth fewer points while less common letters are worth more points. The points associated with each letter are shown below:Points Letters1 A, E, I, L, N, O, R, S, T and U2 D and G3 B, C, M and P4 F, H, V, W and Y5 K8 J and X10 Q and ZWrite a program that computes and displays the Scrabble™ score for a word. Create a dictionary that maps from letters to point values. Then use the dictionary to compute the score.A Scrabble™ board includes some squares that multiply the value of a letter or the value of an entire word. We will ignore these squares in this exercise.Sample InputRECSample OutputREC is worth 5 points.
+------------------ANSWER
+s=input()
+d={'A':1,'E':1,'I':1,'L':1,'N':1,'O':1,'R':1,'S':1,'T':1,'U':1,'D':2,'G':2,'B':3,'C':3,'M':3,'P':3,'F':4,'H':4,'V':4,'W':4,'Y':4,'K':5,'J':8,'X':8,'Q':10,'Z':10}
+sum=0
+for i in s:
+    if i in d:
+        sum+=d[i]
+    else:
+        sum+=0
+print(s,"is worth",sum,"points.")
+------------------------------

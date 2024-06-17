@@ -1,0 +1,105 @@
+resource url?
+QUESTION ----------------
+As a software engineer at SocialLink, a leading social networking application, you are tasked with developing a new feature designed to enhance user interaction and engagement. The company aims to introduce a system where users can form connections based on shared interests and activities. One of the feature's components involves analyzing pairs of users based on the activities they've participated in, specifically looking at the numerical difference in the number of activities each user has participated in.
+------------------ANSWER
+n = int(input())
+nums = list(map(int, input().split()))
+k = int(input())
+if k == 0:
+    freq_map = {}
+    count = 0
+    for num in nums:
+        freq_map[num] = freq_map.get(num, 0) + 1
+    for num in freq_map:
+        count += freq_map[num] * (freq_map[num] - 1) // 2
+        print(count)
+        exit()
+freq_map={}
+count = 0
+
+for num in nums:
+    freq_map[num] = freq_map.get(num, 0) + 1
+for num in nums:
+    if num - k in freq_map:
+        count += freq_map[num - k]
+print(count)
+------------------------------
+QUESTION ----------------
+Background:
+------------------ANSWER
+total=int(input())
+sizes= list(map(int,input().split()))
+inventory={}
+
+for size in sizes:
+    inventory[size] = inventory.get(size, 0) + 1
+requests=int(input())
+total_revenue = 0
+for _ in range(requests):
+    requested_size, price = map(int, input().split())
+    if inventory.get(requested_size, 0) > 0:
+        total_revenue += price
+        inventory[requested_size] -= 1
+print(total_revenue)
+------------------------------
+QUESTION ----------------
+Background:
+------------------ANSWER
+import math
+
+values = input().split()
+
+dia = float(values[0])
+size = float(values[1])
+dia_cm = dia * 100
+parea = math.pi * (dia_cm / 2) ** 2
+tarea = size ** 2
+if int(dia) % 2 != 0:
+    no = math.ceil(parea / tarea) + 100
+else:
+    no = math.ceil(parea / tarea)
+print(no, "tiles")
+------------------------------
+QUESTION ----------------
+Given an integer n, print true if it is a power of two. Otherwise, print false.
+------------------ANSWER
+import math
+n = int(input())
+flag=0
+if n <= 0:
+    flag=0
+else:
+    for i in range(0,n):
+        if math.pow(2,i)==n:
+            flag=1
+            break
+if flag==0:
+    print("False")
+else:
+    print("True")
+------------------------------
+QUESTION ----------------
+Background:
+------------------ANSWER
+import csv
+
+import sys
+
+def cal(input_data):
+    reader = csv.DictReader(input_data, delimiter=' ')
+    total_marks = 0
+    student_count = 0
+    for row in reader:
+        total_marks += int(row['MARKS'])
+        student_count += 1
+    average_marks = total_marks / student_count if student_count else 0
+    print(f"{average_marks:.2f}")
+if __name__=="__main__":
+    input_data= sys.stdin.read().splitlines()
+    n = int(input_data[0])
+    column_headers = input_data[1]
+
+    student_data = input_data[2:n+2]
+    input_csv = [column_headers] + student_data
+    cal(input_csv)
+------------------------------

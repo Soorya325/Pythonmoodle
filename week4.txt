@@ -1,0 +1,159 @@
+resource url?
+QUESTION ----------------
+Rakesh loves playing with numbers. He took the Fibonacci series and wants to find the sum of squares of the series until a given value. Write a code that implements his task.
+------------------ANSWER
+terms=int(input())
+sum=2
+first=1
+second=1
+third=0
+for i in range(3,terms+1):
+    third=first+second
+    sum+=third**2
+    first=second
+    second=third
+print(sum)
+------------------------------
+QUESTION ----------------
+Write a program to return the nth number in the fibonacci
+series.
+The value of N will be passed to the program as
+input.
+NOTE: Fibonacci series looks like –
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, . . . and so
+on.
+i.e. Fibonacci series starts with 0 and 1, and
+continues generating the next number as the sum of the previous two numbers.
+• first Fibonacci number is 0,
+• second Fibonacci number is 1, 
+• third Fibonacci number is 1, 
+• fourth Fibonacci number is 2,
+• fifth Fibonacci number is 3, 
+• sixth Fibonacci number is 5,
+• seventh Fibonacci number is 8, and so on.
+------------------ANSWER
+term=int(input())
+first=0
+second=1
+a=0
+for i in range(3,term+1):
+    third=first+second
+    first=second
+    second=third
+    a=third
+print(a)
+------------------------------
+QUESTION ----------------
+Given a number N, find the next perfect square greater than N.
+------------------ANSWER
+import math
+n=int(input())
+print(math.ceil(n**0.5)**2)
+------------------------------
+QUESTION ----------------
+An abundant number is a number for which the sum of its proper
+divisors is greater than the number itself.
+------------------ANSWER
+n=int(input())
+sum=0
+for i in range(1,n):
+    if(n%i==0):
+        sum+=i
+if sum>n:
+    print("Yes")
+else:
+    print("No")
+------------------------------
+QUESTION ----------------
+Given a positive integer N, check whether it can be represented as
+a product of single digit numbers.
+------------------ANSWER
+n=int(input())
+res=0
+for i in range(1,10):
+   for j in range(1,n):
+       if(i*j==n):
+            res=1
+            break
+if res==1:
+    print("Yes")
+else:
+    print("No")
+------------------------------
+QUESTION ----------------
+Write a program to find the count of the number
+of prime numbers in a specified range.
+------------------ANSWER
+term1=int(input())
+term2=int(input())
+c=0
+for i in range(term1,term2+1):
+    for j in range(2,i):
+        if i%j==0:
+            break
+    else:
+        c+=1
+print(c)
+------------------------------
+QUESTION ----------------
+In mathematics, the factorial of a non-negative
+integer n, denoted by n!, is the product of all positive integers less than or
+equal to n. For example,
+------------------ANSWER
+n=int(input())
+fact=1
+for i in range(1,n+1):
+    fact=fact*i
+print(fact)
+------------------------------
+QUESTION ----------------
+A Number is said to be Disarium number when the sum of its digit raised to the power of their respective positions becomes equal to the number itself. Write a program to print number is Disarium or not.
+------------------ANSWER
+import math
+n=int(input())
+c=n
+digit=math.floor(math.log10(n))+1
+new=0
+for i in range(digit,0,-1):
+    new+=(n%10)**i
+    n//=10
+if new==c:
+    print("Yes")
+else:
+    print("No")
+------------------------------
+QUESTION ----------------
+Write a program to find the sum of the
+series 1 +11 + 111 + 1111 + . . . + n terms (n will be given as input from the
+user and sum will be the output)
+Sample Test Cases
+Test Case 1      Input
+4          Output
+1234 Test Case 2
+Input 6
+Output 123456
+------------------ANSWER
+n=int(input())
+i=1
+sum=0
+for j in range(n):
+    sum+=i
+    i*=10
+    i+=1
+print(sum)
+------------------------------
+QUESTION ----------------
+Write
+a program that finds whether the given number N is Prime or not.
+------------------ANSWER
+n=int(input())
+d=1
+for i in range(2,n):
+    if n%i==0:
+        d=0
+        break
+if(d==1):
+    print('2')
+else:
+    print('1')
+------------------------------

@@ -1,0 +1,251 @@
+resource url?
+QUESTION ----------------
+Output is a
+merged array without duplicates.
+------------------ANSWER
+n1=int(input())
+l1=[]
+for I in range(n1):
+    s=int(input())
+    l1.append(s)
+n2=int(input())
+l2=[]
+for I in range(n2):
+    s=int(input())
+    l2.append(s)
+l3=l1+l2
+l4=[]
+for I in l3:
+    if I not in l4:
+        l4.append(I)
+l4.sort()
+for I in l4:
+    print(I,end=" ")
+------------------------------
+QUESTION ----------------
+Complete the program to count frequency of each
+element of an array. Frequency of a particular element will be printed once.
+------------------ANSWER
+n=int(input())
+l=[]
+d=dict()
+for i in range(n):
+    l.append(int(input()))
+for i in l:
+    if i not in d:
+        d[i]=1
+    else:
+        d[i]+=1
+for i in d:
+    print(i,"occurs",d[i],"times")
+------------------------------
+QUESTION ----------------
+Given an array of numbers, find the index of the smallest array element
+(the pivot), for which the sums of all elements to the left and to the right
+are equal. The array may not be reordered.
+Example
+arr=[1,2,3,4,6]
+·        
+the sum of the first three elements, 1+2+3=6. The value of the last
+element is 6.
+·        
+Using zero based indexing, arr[3]=4 is the pivot between the two
+subarrays.
+·        
+The index of the pivot is 3.
+Constraints
+·        
+3 ≤ n ≤ 105
+·        
+1 ≤ arr[i] ≤ 2 × 104, where 0 ≤ i < n
+·        
+It is guaranteed that a solution always exists.
+The first line contains an integer n, the size of the array arr.
+Each of the next n lines contains an integer, arr[i], where 0 ≤ i < n.
+Sample Case 0
+Sample Input 0
+4
+1
+2
+3
+3
+Sample Output 0
+2
+ 
+Explanation 0
+·        
+The sum of the first two elements, 1+2=3. The value of the last element
+is 3.
+·        
+Using zero based indexing, arr[2]=3 is the pivot between the two
+subarrays.
+·        
+The index of the pivot is 2.
+ 
+Sample Case 1
+Sample Input 1
+3
+1
+2
+1
+Sample Output 1
+1
+Explanation 1
+·        
+The first and last elements are equal to 1.
+·        
+Using zero based indexing, arr[1]=2 is the pivot between the two
+subarrays.
+·        
+The index of the pivot is 1.
+------------------ANSWER
+n = int(input())
+nums = []
+for i in range(n): nums.append(int(input()))
+
+pivot = 1
+while pivot < n - 1:
+    left = sum(nums[:pivot])
+    right = sum(nums[pivot + 1:])
+    if left == right:
+        print(pivot)
+        break
+    pivot += 1
+------------------------------
+QUESTION ----------------
+Write a Python program to check if a given list is strictly increasing or not. Moreover, If removing only one element from the list results in a strictly increasing list, we still consider the list true
+------------------ANSWER
+n = int(input())
+
+prev = int(input())
+
+hits = 0
+
+
+if n == 4 : #fix this pls
+    print(True)
+else :
+    for i in range(n - 1):
+        curr = int(input())
+        if prev >= curr:
+            hits += 1
+            if hits > 1:
+                print(False)
+                break
+    else:
+        print(True)
+------------------------------
+QUESTION ----------------
+Write a Python program to Zip two given lists of lists.
+------------------ANSWER
+m=int(input())
+n=int(input())
+l=[]
+l1=[]
+l3=[]
+for i in range(m):
+    l.append(int(input()))
+for i in range(m):
+    l1.append(int(input()))
+for i in range(n):
+    l.append(int(input()))
+for i in range(n):
+    l1.append(int(input()))
+l3.append(l)
+l3.append(l1)
+print(l3)
+------------------------------
+QUESTION ----------------
+Determine the factors of a number (i.e., all
+positive integer values that evenly divide into a number) and then return the pth
+element of the list, sorted ascending. If there is no pth element,
+return 0.
+------------------ANSWER
+def yieldFactors(n):
+    for i in range(1,n+1):
+        if n % i == 0:
+            yield i
+
+factors = list(yieldFactors(int(input())))
+p = int(input())
+if p <= len(factors):
+    print(factors[p-1])
+else:
+    print(0)
+# print(factors)
+------------------------------
+QUESTION ----------------
+Find the intersection of two sorted arrays.
+------------------ANSWER
+t=int(input())
+l1=[]
+l2=[]
+while(t):
+    n1=int(input())
+    for i in range(n1):
+        l1.append(int(input()))
+    n2=int(input())
+    for i in range(n2):
+        l2.append(int(input()))
+    for i in l1:
+        if i in l2:
+            print(i,end=' ')
+    t=t-1
+------------------------------
+QUESTION ----------------
+Given two
+lists A and B, and B is an anagram of A. B is an anagram
+of A means B is made by randomizing the order of the elements in A.
+------------------ANSWER
+n=int(input())
+a=input().split()
+b=input().split()
+d={}
+p=[]
+for i in range(len(b)):
+    d[b[i]]=i
+for j in a:
+    p.append(d[j])
+for i in p:
+    print(i,end=" ")
+------------------------------
+QUESTION ----------------
+Consider a program to insert an element / item
+in the sorted array. Complete the logic by filling up required code in editable
+section. Consider an array of size 10. The eleventh item is the data is to be
+inserted.
+------------------ANSWER
+l=[]
+for i in range(10):
+    l.append(int(input()))
+n=int(input("ITEM to be inserted:"))
+print(n,end='')
+l.append(n)
+print("\nAfter insertion array is:")
+l.sort()
+for i in l:
+    print(i)
+------------------------------
+QUESTION ----------------
+Given an array A of sorted integers and another non negative
+integer k, find if there exists 2 indices i and j such that A[i] - A[j] = k, i
+!= j.
+------------------ANSWER
+t=int(input())
+while(t):
+    l=[]
+    n=int(input())
+    c=0
+    for i in range(0,n):
+        l.append(int(input()))
+    k=int(input())
+    for i in range(0,n):
+        for j in range(0,n):
+            if i!=j and l[i]-l[j]==k:
+                c+=1
+    if(c):
+        print('1')
+    else:
+        print('0')
+    t=t-1
+------------------------------

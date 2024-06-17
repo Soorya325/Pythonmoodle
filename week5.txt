@@ -1,0 +1,143 @@
+resource url?
+QUESTION ----------------
+Write a python to read a sentence
+and print its longest word and its length
+------------------ANSWER
+str=input()
+l=[]
+l=str.split()
+a=-9999
+n=''
+for i in l:
+    if(len(i)>a):
+        a=len(i)
+        n=i
+print(n)
+print(a)
+------------------------------
+QUESTION ----------------
+Write a program that takes as input a
+string (sentence), and returns its second word in uppercase.
+------------------ANSWER
+str=input()
+l=[]
+l=str.split()
+if(len(l)>=2):
+    print(l[1].upper())
+else:
+    print("LESS")
+------------------------------
+QUESTION ----------------
+In this exercise, you will create a program that reads words from the user until the user enters a blank line. After the user enters a blank line your program should display each word entered by the user exactly once. The words should be displayed in the same order that they were first entered. For example, if the user enters:
+------------------ANSWER
+str=input()
+l=[]
+while(str!=" "):
+    if str not in l:
+        l.append(str)
+    str=input()
+for i in l:
+    print(i)
+------------------------------
+QUESTION ----------------
+String
+should contain only the words are not palindrome.
+------------------ANSWER
+l=[]
+l2=[]
+str=input()
+l=str.split()
+for i in l:
+    if i.lower()!=i.lower()[::-1]:
+        l2.append(i)
+for i in l2:
+    print (i.lower(),end=" ")
+------------------------------
+QUESTION ----------------
+Given a string S, which contains
+several words, print the count C of the words whose length is atleast L. (You
+can include punctuation marks like comma, full stop also as part of the word
+length. Space alone must be ignored)
+------------------ANSWER
+l=[]
+c=0
+str=input()
+n=int(input())
+l=str.split()
+for i in l:
+    if len(i)>=n:
+        c+=1
+print(c)
+------------------------------
+QUESTION ----------------
+Given
+two Strings s1 and s2, remove all the characters from s1 which is present in
+s2.
+------------------ANSWER
+s1=input()
+s2=input()
+s3=""
+for i in s1:
+    if i not in s2:
+        print(i,end='')
+------------------------------
+QUESTION ----------------
+Consider the below words as key words and check the given input is
+key word or not.
+------------------ANSWER
+key=['break', 'case', 'continue', 'default', 'defer', 'else', 'for', 'func', 'goto', 'if', 'map', 'range', 'return', 'struct', 'type', 'var']
+str=input()
+if str in key:
+    print(str,"is a keyword")
+else:
+    print(str,"is not a keyword")
+------------------------------
+QUESTION ----------------
+Find if a
+String2 is substring of String1. If it is, return the index of the first
+occurrence. else return -1.
+------------------ANSWER
+s1=input()
+s2=input()
+print(s1.find(s2))
+------------------------------
+QUESTION ----------------
+Write a python program to count all letters,
+digits, and special symbols respectively from a given string
+------------------ANSWER
+s=input()
+a,d,spl=0,0,0
+for i in s:
+    if i.isalpha():
+        a+=1
+    elif i.isdigit():
+        d+=1
+    else:
+        spl+=1
+print(a)
+print(d)
+print(spl)
+------------------------------
+QUESTION ----------------
+Given a string S which is of the format
+USERNAME@DOMAIN.EXTENSION, the program must print the EXTENSION, DOMAIN,
+USERNAME in the reverse order.
+------------------ANSWER
+s=input().split('@')
+user=s[0]
+s.remove(s[0])
+temp=""
+ex=""
+dom=""
+for i in s:
+    temp+=i
+d=temp.find(".")
+for i in range (d):
+    ex+=temp[i]
+d=d+1
+for i in range(d,len(temp)):
+    dom+=temp[i]
+print(dom)
+print(ex)
+print(user)
+------------------------------

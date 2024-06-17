@@ -1,0 +1,94 @@
+resource url?
+QUESTION ----------------
+An list contains N numbers and you want to determine whether two of the numbers sum to a given number K. For example, if the input is 8, 4, 1, 6 and K is 10, the answer is yes (4 and 6). A number may be used twice.Input FormatThe first line contains a single integer n , the length of listThe second line contains n space-separated integers, list[i].The third line contains integer k.Output FormatPrint Yes or No.Sample Input70 1 2 4 6 5 3 1 Sample OutputYes
+------------------ANSWER
+n=int (input () )
+l=list (map (int, input().split())) 
+flag=0
+k=int (input () )
+for i in range(len (l) ) : 
+    for j in range(len(l)):
+        if i!=j:
+            if l[i]+l[j] ==k: 
+                flag=1
+                break
+if flag==0: 
+    print ("No")
+else:
+    print ("Yes")
+------------------------------
+QUESTION ----------------
+Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines:
+------------------ANSWER
+n=int(input())
+
+c=0
+l=input().split()
+def sort(l,c):
+    for i in range(0,n):
+        for j in range(0,n-i-1):
+            if int(l[j])>int(l[j+1]):
+                l[j],l[j+1]=l[j+1],l[j]
+                c+=1
+    return c
+x=sort(l,c)
+print("List is sorted in",x,"swaps.")
+print("First Element:",int(l[0]))
+print("Last Element:",int(l[-1]))
+------------------------------
+QUESTION ----------------
+Given an list, find peak element in it. A peak element is an element that is greater than its neighbors.
+------------------ANSWER
+n = int (input () )
+nums = list (map (int, input().split())) 
+p = []
+for i in range(len (nums) ):
+    if i == 0:
+        if nums[i] >= nums [i+1]: 
+            p.append (nums [i])
+    elif i == len(nums) - 1: 
+        if nums[i] >= nums [i-1]: p.append (nums [i])
+    else:
+        if nums[i] >= nums [i-1] and nums[i] >= nums [i+1]: p.append (nums [i] )
+print(' '.join(map(str, p)))
+------------------------------
+QUESTION ----------------
+Write a Python program for binary search.
+------------------ANSWER
+l=input().split(',')
+s=int(input())
+l.sort()
+lb=0
+ub=len(l)-1
+flag=0
+while lb<=ub:
+    mid=(lb+ub)//2
+    if int(l[mid])==s:
+        flag=1
+        break
+    elif int(l[mid])<s:
+        lb+=1
+    else:
+        ub-=1
+if flag==1:
+    print("True")
+else:
+    print("False")
+------------------------------
+QUESTION ----------------
+To find the frequency of numbers in a list and display in sorted order.Constraints: 1<=n, arr[i]<=100 Input: 1 68 79 4 90 68 1 4 5 output: 1 2 4 2 5 1 68 2 79 1 90 1
+------------------ANSWER
+l=input().split()
+d={}
+for i in range(0,len(l)):
+    for j in range(0,len(l)-i-1):
+        if int(l[j])>int(l[j+1]):
+            l[j],l[j+1]=l[j+1],l[j]
+for i in l:
+    if i in d:
+        d[i]+=1
+    else:
+        d[i]=1
+for i in d:
+    print(i,d[i])
+------------------------------
